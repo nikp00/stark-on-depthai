@@ -1,0 +1,3 @@
+[submodule "Stark"]
+	path = Stark
+	url = git@github.com:nikp00/Stark.git
