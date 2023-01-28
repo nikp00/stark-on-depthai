@@ -1,0 +1,17 @@
+torch==1.7.0 
+torchvision==0.8.1 -f https://download.pytorch.org/whl/torch_stable.html
+timm==0.3.2 
+einops 
+opencv-python 
+tensorboard 
+easydict 
+pyYAML 
+matplotlib 
+pandas
+yacs 
+jpeg4py
+lmdb
+
+onnx
+onnxruntime
+onnxsim

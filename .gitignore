@@ -1,0 +1,11 @@
+dataset/
+debug/
+results/
+venv/
+models/
+
+.env
+
+
+.vscode/
+__pycache__/
