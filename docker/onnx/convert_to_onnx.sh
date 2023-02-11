@@ -16,4 +16,4 @@ python3 /stark-on-depthai/Stark/tracking/ORT_lightning_X_trt_complete.py
 mkdir -p /stark-on-depthai/models/complete
 mv /stark-on-depthai/Stark/complete*.onnx /stark-on-depthai/models/complete/
 mv /stark-on-depthai/Stark/complete*.pth /stark-on-depthai/models/complete/
-python3 -m  onnxsim /stark-on-depthai/models/complete/complete.onnx /stark-on-depthai/models/complete/complete_sim.onnx
+python3 -m onnxsim /stark-on-depthai/models/complete/complete.onnx /stark-on-depthai/models/complete/complete_sim.onnx
