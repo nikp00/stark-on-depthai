@@ -1,10 +1,14 @@
+numba
+git+https://github.com/votchallenge/vot-toolkit-python
+
+
 depthai
 
 wheel
+PySide2
 git+https://github.com/geaxgx/depthai_pipeline_graph.git
 
 opencv-python
-
 
 torch==1.7.0
 torchvision==0.8.1

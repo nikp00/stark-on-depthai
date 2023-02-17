@@ -2,10 +2,11 @@ dataset/
 debug/
 results/
 venv/
-models/
 
 .env
 
+vot/sequences/
+vot/logs/
 
 .vscode/
 __pycache__/

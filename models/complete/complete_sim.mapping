@@ -1,0 +1,619 @@
+<?xml version="1.0"?>
+<mapping>
+	<map>
+		<framework name="pos_z" output_port_id="pos_z" />
+		<IR name="pos_z" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="mask_z" output_port_id="mask_z" />
+		<IR name="mask_z" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="feat_z" output_port_id="feat_z" />
+		<IR name="feat_z" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="mask_x" output_port_id="mask_x" />
+		<IR name="mask_x" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="img_x" output_port_id="img_x" />
+		<IR name="img_x" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Div_1" output_port_id="50" />
+		<IR name="Div_1" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="51" output_port_id="51" />
+		<IR name="51" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Sub_3" output_port_id="52" />
+		<IR name="Sub_3" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Conv_8" output_port_id="57" />
+		<IR name="Conv_8" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Relu_9" output_port_id="58" />
+		<IR name="Relu_9" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="backbone.body.stage1.0.rbr_reparam.weight" output_port_id="backbone.body.stage1.0.rbr_reparam.weight" />
+		<IR name="backbone.body.stage1.0.rbr_reparam.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Conv_10" output_port_id="59" />
+		<IR name="Conv_10" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Relu_11" output_port_id="60" />
+		<IR name="Relu_11" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="backbone.body.stage1.1.rbr_reparam.weight" output_port_id="backbone.body.stage1.1.rbr_reparam.weight" />
+		<IR name="backbone.body.stage1.1.rbr_reparam.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Conv_12" output_port_id="61" />
+		<IR name="Conv_12" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Relu_13" output_port_id="62" />
+		<IR name="Relu_13" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="backbone.body.stage2.0.rbr_reparam.weight" output_port_id="backbone.body.stage2.0.rbr_reparam.weight" />
+		<IR name="backbone.body.stage2.0.rbr_reparam.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Conv_14" output_port_id="63" />
+		<IR name="Conv_14" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Relu_15" output_port_id="64" />
+		<IR name="Relu_15" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="backbone.body.stage2.1.rbr_reparam.weight" output_port_id="backbone.body.stage2.1.rbr_reparam.weight" />
+		<IR name="backbone.body.stage2.1.rbr_reparam.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Conv_16" output_port_id="65" />
+		<IR name="Conv_16" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Relu_17" output_port_id="66" />
+		<IR name="Relu_17" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="backbone.body.stage2.2.rbr_reparam.weight" output_port_id="backbone.body.stage2.2.rbr_reparam.weight" />
+		<IR name="backbone.body.stage2.2.rbr_reparam.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Conv_18" output_port_id="67" />
+		<IR name="Conv_18" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Relu_19" output_port_id="68" />
+		<IR name="Relu_19" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="backbone.body.stage2.3.rbr_reparam.weight" output_port_id="backbone.body.stage2.3.rbr_reparam.weight" />
+		<IR name="backbone.body.stage2.3.rbr_reparam.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Conv_20" output_port_id="69" />
+		<IR name="Conv_20" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Relu_21" output_port_id="70" />
+		<IR name="Relu_21" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="backbone.body.stage3.0.rbr_reparam.weight" output_port_id="backbone.body.stage3.0.rbr_reparam.weight" />
+		<IR name="backbone.body.stage3.0.rbr_reparam.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Conv_22" output_port_id="71" />
+		<IR name="Conv_22" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Relu_23" output_port_id="72" />
+		<IR name="Relu_23" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="backbone.body.stage3.1.rbr_reparam.weight" output_port_id="backbone.body.stage3.1.rbr_reparam.weight" />
+		<IR name="backbone.body.stage3.1.rbr_reparam.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Conv_24" output_port_id="73" />
+		<IR name="Conv_24" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Relu_25" output_port_id="74" />
+		<IR name="Relu_25" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="backbone.body.stage3.2.rbr_reparam.weight" output_port_id="backbone.body.stage3.2.rbr_reparam.weight" />
+		<IR name="backbone.body.stage3.2.rbr_reparam.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Conv_26" output_port_id="75" />
+		<IR name="Conv_26" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Relu_27" output_port_id="76" />
+		<IR name="Relu_27" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="backbone.body.stage3.3.rbr_reparam.weight" output_port_id="backbone.body.stage3.3.rbr_reparam.weight" />
+		<IR name="backbone.body.stage3.3.rbr_reparam.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Conv_28" output_port_id="77" />
+		<IR name="Conv_28" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Relu_29" output_port_id="78" />
+		<IR name="Relu_29" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="bottleneck.weight" output_port_id="bottleneck.weight" />
+		<IR name="bottleneck.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Conv_30" output_port_id="79" />
+		<IR name="Conv_30" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="404" output_port_id="404" />
+		<IR name="404" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Reshape_83" output_port_id="135" />
+		<IR name="Reshape_83" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Transpose_84" output_port_id="136" />
+		<IR name="Transpose_84" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="145" output_port_id="145" />
+		<IR name="145" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Add_98" output_port_id="150" />
+		<IR name="Add_98" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Unsqueeze_6" output_port_id="55" />
+		<IR name="Unsqueeze_6" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Unsqueeze_31" output_port_id="80" />
+		<IR name="Unsqueeze_31" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Cast_32" output_port_id="81" />
+		<IR name="Cast_32" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="98" output_port_id="98" />
+		<IR name="98" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Resize_51" output_port_id="100" />
+		<IR name="Resize_51" output_port_id="3" />
+	</map>
+	<map>
+		<framework name="Cast_52" output_port_id="101" />
+		<IR name="Cast_52" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="102" output_port_id="102" />
+		<IR name="102" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Gather_54" output_port_id="103" />
+		<IR name="Gather_54" output_port_id="3" />
+	</map>
+	<map>
+		<framework name="Flatten_94" output_port_id="146" />
+		<IR name="Flatten_94" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Concat_96" output_port_id="148" />
+		<IR name="Concat_96" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Unsqueeze_180" output_port_id="258" />
+		<IR name="Unsqueeze_180" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Unsqueeze_181" output_port_id="259" />
+		<IR name="Unsqueeze_181" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="261" output_port_id="261" />
+		<IR name="261" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Mul_147" output_port_id="219" />
+		<IR name="Mul_147" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="225" output_port_id="225" />
+		<IR name="225" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Reshape_154" output_port_id="226" />
+		<IR name="Reshape_154" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Transpose_155" output_port_id="227" />
+		<IR name="Transpose_155" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Concat_95" output_port_id="147" />
+		<IR name="Concat_95" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Concat_97" output_port_id="149" />
+		<IR name="Concat_97" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Add_99" output_port_id="151" />
+		<IR name="Add_99" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="MatMul_133" output_port_id="197" />
+		<IR name="MatMul_133" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Add_134" output_port_id="198" />
+		<IR name="Add_134" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="234" output_port_id="234" />
+		<IR name="234" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Reshape_161" output_port_id="235" />
+		<IR name="Reshape_161" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Transpose_173" output_port_id="249" />
+		<IR name="Transpose_173" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="MatMul_174" output_port_id="250" />
+		<IR name="MatMul_174" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="396" output_port_id="396" />
+		<IR name="396" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Reshape_179" output_port_id="257" />
+		<IR name="Reshape_179" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Where_184" output_port_id="262" />
+		<IR name="Where_184" output_port_id="3" />
+	</map>
+	<map>
+		<framework name="400" output_port_id="400" />
+		<IR name="400" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Reshape_191" output_port_id="269" />
+		<IR name="Reshape_191" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Softmax_192" output_port_id="270" />
+		<IR name="Softmax_192" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="MatMul_144" output_port_id="216" />
+		<IR name="MatMul_144" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Add_145" output_port_id="217" />
+		<IR name="Add_145" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Reshape_168" output_port_id="244" />
+		<IR name="Reshape_168" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Transpose_169" output_port_id="245" />
+		<IR name="Transpose_169" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="MatMul_193" output_port_id="271" />
+		<IR name="MatMul_193" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Transpose_194" output_port_id="272" />
+		<IR name="Transpose_194" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="276" output_port_id="276" />
+		<IR name="276" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Reshape_199" output_port_id="277" />
+		<IR name="Reshape_199" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="MatMul_200" output_port_id="279" />
+		<IR name="MatMul_200" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Add_201" output_port_id="280" />
+		<IR name="Add_201" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Add_202" output_port_id="281" />
+		<IR name="Add_202" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Div_211" output_port_id="292" />
+		<IR name="Div_211" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Mul_212" output_port_id="293" />
+		<IR name="Mul_212" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Add_213" output_port_id="294" />
+		<IR name="Add_213" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="MatMul_214" output_port_id="296" />
+		<IR name="MatMul_214" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Add_215" output_port_id="297" />
+		<IR name="Add_215" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Relu_216" output_port_id="298" />
+		<IR name="Relu_216" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="MatMul_217" output_port_id="300" />
+		<IR name="MatMul_217" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Add_218" output_port_id="301" />
+		<IR name="Add_218" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Add_219" output_port_id="302" />
+		<IR name="Add_219" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Div_228" output_port_id="313" />
+		<IR name="Div_228" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Mul_229" output_port_id="314" />
+		<IR name="Mul_229" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Add_230" output_port_id="315" />
+		<IR name="Add_230" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="317" output_port_id="317" />
+		<IR name="317" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="403" output_port_id="403" />
+		<IR name="403" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="170" output_port_id="170" />
+		<IR name="170" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Slice_235" output_port_id="320" />
+		<IR name="Slice_235" output_port_id="4" />
+	</map>
+	<map>
+		<framework name="Transpose_236" output_port_id="321" />
+		<IR name="Transpose_236" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="334" output_port_id="334" />
+		<IR name="334" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Reshape_246" output_port_id="335" />
+		<IR name="Reshape_246" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="box_head.conv_tower.0.rbr_reparam.weight" output_port_id="box_head.conv_tower.0.rbr_reparam.weight" />
+		<IR name="box_head.conv_tower.0.rbr_reparam.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Conv_247" output_port_id="336" />
+		<IR name="Conv_247" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Relu_248" output_port_id="337" />
+		<IR name="Relu_248" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="box_head.conv_tower.1.rbr_reparam.weight" output_port_id="box_head.conv_tower.1.rbr_reparam.weight" />
+		<IR name="box_head.conv_tower.1.rbr_reparam.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Conv_249" output_port_id="338" />
+		<IR name="Conv_249" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Relu_250" output_port_id="339" />
+		<IR name="Relu_250" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="box_head.conv_tower.2.weight" output_port_id="box_head.conv_tower.2.weight" />
+		<IR name="box_head.conv_tower.2.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Conv_251" output_port_id="340" />
+		<IR name="Conv_251" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Gather_253" output_port_id="342" />
+		<IR name="Gather_253" output_port_id="3" />
+	</map>
+	<map>
+		<framework name="345" output_port_id="345" />
+		<IR name="345" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Reshape_257" output_port_id="346" />
+		<IR name="Reshape_257" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Softmax_258" output_port_id="347" />
+		<IR name="Softmax_258" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Mul_260" output_port_id="349" />
+		<IR name="Mul_260" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="ReduceSum_261" output_port_id="350" />
+		<IR name="ReduceSum_261" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Mul_263" output_port_id="352" />
+		<IR name="Mul_263" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="ReduceSum_264" output_port_id="353" />
+		<IR name="ReduceSum_264" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="156" output_port_id="156" />
+		<IR name="156" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Gather_255" output_port_id="344" />
+		<IR name="Gather_255" output_port_id="3" />
+	</map>
+	<map>
+		<framework name="Reshape_266" output_port_id="355" />
+		<IR name="Reshape_266" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Softmax_267" output_port_id="356" />
+		<IR name="Softmax_267" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Mul_269" output_port_id="358" />
+		<IR name="Mul_269" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="ReduceSum_270" output_port_id="359" />
+		<IR name="ReduceSum_270" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Mul_272" output_port_id="361" />
+		<IR name="Mul_272" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="ReduceSum_273" output_port_id="362" />
+		<IR name="ReduceSum_273" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Concat_278" output_port_id="367" />
+		<IR name="Concat_278" output_port_id="4" />
+	</map>
+	<map>
+		<framework name="Div_279" output_port_id="370" />
+		<IR name="Div_279" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Split_280" output_port_id="371" />
+		<IR name="Split_280" output_port_id="3" />
+	</map>
+	<map>
+		<framework name="Split_280" output_port_id="372" />
+		<IR name="Split_280" output_port_id="4" />
+	</map>
+	<map>
+		<framework name="Split_280" output_port_id="373" />
+		<IR name="Split_280" output_port_id="5" />
+	</map>
+	<map>
+		<framework name="Split_280" output_port_id="374" />
+		<IR name="Split_280" output_port_id="6" />
+	</map>
+	<map>
+		<framework name="Squeeze_281" output_port_id="375" />
+		<IR name="Squeeze_281" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Squeeze_283" output_port_id="377" />
+		<IR name="Squeeze_283" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Add_285" output_port_id="379" />
+		<IR name="Add_285" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Div_286" output_port_id="382" />
+		<IR name="Div_286" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Unsqueeze_291" output_port_id="389" />
+		<IR name="Unsqueeze_291" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Squeeze_282" output_port_id="376" />
+		<IR name="Squeeze_282" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Squeeze_284" output_port_id="378" />
+		<IR name="Squeeze_284" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Add_287" output_port_id="383" />
+		<IR name="Add_287" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Div_288" output_port_id="386" />
+		<IR name="Div_288" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Unsqueeze_292" output_port_id="390" />
+		<IR name="Unsqueeze_292" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Sub_289" output_port_id="387" />
+		<IR name="Sub_289" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Unsqueeze_293" output_port_id="391" />
+		<IR name="Unsqueeze_293" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Sub_290" output_port_id="388" />
+		<IR name="Sub_290" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Unsqueeze_294" output_port_id="392" />
+		<IR name="Unsqueeze_294" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="outputs_coord" output_port_id="outputs_coord" />
+		<IR name="outputs_coord" output_port_id="4" />
+	</map>
+</mapping>
