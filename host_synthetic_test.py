@@ -23,8 +23,8 @@ def draw_bbox(img, bbox, color=(0, 0, 255), thickness=2):
 tracker = HostModeSyntheticTracker(
     "models/backbone_bottleneck_pe/backbone_bottleneck_pe_myriad.blob",
     "models/complete/complete_myriad.blob",
-    "models/pre_model/pre_model_128_nn.blob",
-    "models/pre_model/pre_model_320_nn.blob",
+    "models/to_float_model/to_float_model_128.blob",
+    "models/to_float_model/to_float_model_320.blob",
 )
 
 reader = ImageReader("dataset", DatasetType.LASOT)
@@ -40,6 +40,6 @@ for img, bbox, img_id, dir_id, category_id in reader.read():
 
     cv2.imshow("Output img", out_img)
 
-    if cv2.waitKey(5) & 0xFF == ord("q"):
+    if cv2.waitKey(1) & 0xFF == ord("q"):
         cv2.destroyAllWindows()
         break

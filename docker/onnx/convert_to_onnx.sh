@@ -20,7 +20,7 @@ python3 -m onnxsim /stark-on-depthai/models/complete/complete.onnx /stark-on-dep
 
 
 cd ..
-python3 /stark-on-depthai/models/pre_model/pre_model.py
-mv /stark-on-depthai/pre_model*.onnx /stark-on-depthai/models/pre_model/
-python3 -m onnxsim /stark-on-depthai/models/pre_model/pre_model_128_nn.onnx /stark-on-depthai/models/pre_model/pre_model_128_nn_sim.onnx
-python3 -m onnxsim /stark-on-depthai/models/pre_model/pre_model_320_nn.onnx /stark-on-depthai/models/pre_model/pre_model_320_nn_sim.onnx
+python3 /stark-on-depthai/models/to_float_model/to_float_model.py
+mv /stark-on-depthai/to_float_model*.onnx /stark-on-depthai/models/to_float_model/
+python3 -m onnxsim /stark-on-depthai/models/to_float_model/to_float_model_128.onnx /stark-on-depthai/models/to_float_model/to_float_model_128_sim.onnx
+python3 -m onnxsim /stark-on-depthai/models/to_float_model/to_float_model_320.onnx /stark-on-depthai/models/to_float_model/to_float_model_320_sim.onnx

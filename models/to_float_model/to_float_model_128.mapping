@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<mapping>
+	<map>
+		<framework name="in_img" output_port_id="in_img" />
+		<IR name="in_img" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="img" output_port_id="img" />
+		<IR name="img" output_port_id="1" />
+	</map>
+</mapping>

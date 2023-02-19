@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <mapping>
 	<map>
-		<framework name="mask" output_port_id="mask" />
-		<IR name="mask" output_port_id="0" />
+		<framework name="img" output_port_id="27" />
+		<IR name="img" output_port_id="0" />
 	</map>
 	<map>
 		<framework name="img" output_port_id="img" />
@@ -13,252 +13,336 @@
 		<IR name="pos_z" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Unsqueeze_6" output_port_id="35" />
-		<IR name="Unsqueeze_6" output_port_id="2" />
+		<framework name="ReduceMean_1" output_port_id="28" />
+		<IR name="ReduceMean_1" output_port_id="2" />
 	</map>
 	<map>
-		<framework name="Unsqueeze_6" output_port_id="34" />
-		<IR name="Unsqueeze_6" output_port_id="2" />
+		<framework name="Greater_3" output_port_id="30" />
+		<IR name="Greater_3" output_port_id="2" />
 	</map>
 	<map>
-		<framework name="Unsqueeze_31" output_port_id="59" />
-		<IR name="Unsqueeze_31" output_port_id="2" />
+		<framework name="Cast_4" output_port_id="31" />
+		<IR name="Cast_4" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Cast_32" output_port_id="60" />
-		<IR name="Cast_32" output_port_id="1" />
+		<framework name="Mul_6" output_port_id="33" />
+		<IR name="Mul_6" output_port_id="2" />
 	</map>
 	<map>
-		<framework name="Shape_43" output_port_id="71" />
-		<IR name="Shape_43" output_port_id="1" />
+		<framework name="Unsqueeze_7" output_port_id="34" />
+		<IR name="Unsqueeze_7" output_port_id="2" />
 	</map>
 	<map>
-		<framework name="Constant_45" output_port_id="73" />
-		<IR name="Constant_45" output_port_id="0" />
+		<framework name="MaxPool_8" output_port_id="35" />
+		<IR name="MaxPool_8" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Constant_46" output_port_id="74" />
-		<IR name="Constant_46" output_port_id="0" />
+		<framework name="Clip_9" output_port_id="40" />
+		<IR name="Clip_9" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Slice_47" output_port_id="75" />
-		<IR name="Slice_47" output_port_id="4" />
+		<framework name="Shape_11" output_port_id="42" />
+		<IR name="Shape_11" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Div_1" output_port_id="29" />
-		<IR name="Div_1" output_port_id="2" />
+		<framework name="Constant_10" output_port_id="41" />
+		<IR name="Constant_10" output_port_id="0" />
 	</map>
 	<map>
-		<framework name="Constant_2" output_port_id="30" />
-		<IR name="Constant_2" output_port_id="1" />
+		<framework name="Gather_12" output_port_id="43" />
+		<IR name="Gather_12" output_port_id="3" />
 	</map>
 	<map>
-		<framework name="Sub_3" output_port_id="31" />
-		<IR name="Sub_3" output_port_id="2" />
+		<framework name="Constant_13" output_port_id="44" />
+		<IR name="Constant_13" output_port_id="0" />
 	</map>
 	<map>
-		<framework name="Conv_8" output_port_id="36" />
-		<IR name="Conv_8" output_port_id="2" />
+		<framework name="Equal_14" output_port_id="45" />
+		<IR name="Equal_14" output_port_id="2" />
 	</map>
 	<map>
-		<framework name="Relu_9" output_port_id="37" />
-		<IR name="Relu_9" output_port_id="1" />
+		<framework name="If_15" output_port_id="46" />
+		<IR name="If_15" output_port_id="3" />
+	</map>
+	<map>
+		<framework name="Shape_19" output_port_id="50" />
+		<IR name="Shape_19" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Constant_18" output_port_id="49" />
+		<IR name="Constant_18" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Gather_20" output_port_id="51" />
+		<IR name="Gather_20" output_port_id="3" />
+	</map>
+	<map>
+		<framework name="Constant_21" output_port_id="52" />
+		<IR name="Constant_21" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Equal_22" output_port_id="53" />
+		<IR name="Equal_22" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="If_23" output_port_id="54" />
+		<IR name="If_23" output_port_id="3" />
+	</map>
+	<map>
+		<framework name="Cast_26" output_port_id="57" />
+		<IR name="Cast_26" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Not_27" output_port_id="58" />
+		<IR name="Not_27" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Unsqueeze_34" output_port_id="66" />
+		<IR name="Unsqueeze_34" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Unsqueeze_34" output_port_id="65" />
+		<IR name="Unsqueeze_34" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Unsqueeze_59" output_port_id="90" />
+		<IR name="Unsqueeze_59" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Cast_60" output_port_id="91" />
+		<IR name="Cast_60" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Shape_71" output_port_id="102" />
+		<IR name="Shape_71" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Constant_73" output_port_id="104" />
+		<IR name="Constant_73" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Constant_74" output_port_id="105" />
+		<IR name="Constant_74" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Slice_75" output_port_id="106" />
+		<IR name="Slice_75" output_port_id="4" />
+	</map>
+	<map>
+		<framework name="Div_29" output_port_id="60" />
+		<IR name="Div_29" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Constant_30" output_port_id="61" />
+		<IR name="Constant_30" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="Sub_31" output_port_id="62" />
+		<IR name="Sub_31" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Conv_36" output_port_id="67" />
+		<IR name="Conv_36" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Relu_37" output_port_id="68" />
+		<IR name="Relu_37" output_port_id="1" />
 	</map>
 	<map>
 		<framework name="backbone.body.stage1.0.rbr_reparam.weight" output_port_id="backbone.body.stage1.0.rbr_reparam.weight" />
 		<IR name="backbone.body.stage1.0.rbr_reparam.weight" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Conv_10" output_port_id="38" />
-		<IR name="Conv_10" output_port_id="2" />
+		<framework name="Conv_38" output_port_id="69" />
+		<IR name="Conv_38" output_port_id="2" />
 	</map>
 	<map>
-		<framework name="Relu_11" output_port_id="39" />
-		<IR name="Relu_11" output_port_id="1" />
+		<framework name="Relu_39" output_port_id="70" />
+		<IR name="Relu_39" output_port_id="1" />
 	</map>
 	<map>
 		<framework name="backbone.body.stage1.1.rbr_reparam.weight" output_port_id="backbone.body.stage1.1.rbr_reparam.weight" />
 		<IR name="backbone.body.stage1.1.rbr_reparam.weight" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Conv_12" output_port_id="40" />
-		<IR name="Conv_12" output_port_id="2" />
+		<framework name="Conv_40" output_port_id="71" />
+		<IR name="Conv_40" output_port_id="2" />
 	</map>
 	<map>
-		<framework name="Relu_13" output_port_id="41" />
-		<IR name="Relu_13" output_port_id="1" />
+		<framework name="Relu_41" output_port_id="72" />
+		<IR name="Relu_41" output_port_id="1" />
 	</map>
 	<map>
 		<framework name="backbone.body.stage2.0.rbr_reparam.weight" output_port_id="backbone.body.stage2.0.rbr_reparam.weight" />
 		<IR name="backbone.body.stage2.0.rbr_reparam.weight" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Conv_14" output_port_id="42" />
-		<IR name="Conv_14" output_port_id="2" />
+		<framework name="Conv_42" output_port_id="73" />
+		<IR name="Conv_42" output_port_id="2" />
 	</map>
 	<map>
-		<framework name="Relu_15" output_port_id="43" />
-		<IR name="Relu_15" output_port_id="1" />
+		<framework name="Relu_43" output_port_id="74" />
+		<IR name="Relu_43" output_port_id="1" />
 	</map>
 	<map>
 		<framework name="backbone.body.stage2.1.rbr_reparam.weight" output_port_id="backbone.body.stage2.1.rbr_reparam.weight" />
 		<IR name="backbone.body.stage2.1.rbr_reparam.weight" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Conv_16" output_port_id="44" />
-		<IR name="Conv_16" output_port_id="2" />
+		<framework name="Conv_44" output_port_id="75" />
+		<IR name="Conv_44" output_port_id="2" />
 	</map>
 	<map>
-		<framework name="Relu_17" output_port_id="45" />
-		<IR name="Relu_17" output_port_id="1" />
+		<framework name="Relu_45" output_port_id="76" />
+		<IR name="Relu_45" output_port_id="1" />
 	</map>
 	<map>
 		<framework name="backbone.body.stage2.2.rbr_reparam.weight" output_port_id="backbone.body.stage2.2.rbr_reparam.weight" />
 		<IR name="backbone.body.stage2.2.rbr_reparam.weight" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Conv_18" output_port_id="46" />
-		<IR name="Conv_18" output_port_id="2" />
+		<framework name="Conv_46" output_port_id="77" />
+		<IR name="Conv_46" output_port_id="2" />
 	</map>
 	<map>
-		<framework name="Relu_19" output_port_id="47" />
-		<IR name="Relu_19" output_port_id="1" />
+		<framework name="Relu_47" output_port_id="78" />
+		<IR name="Relu_47" output_port_id="1" />
 	</map>
 	<map>
 		<framework name="backbone.body.stage2.3.rbr_reparam.weight" output_port_id="backbone.body.stage2.3.rbr_reparam.weight" />
 		<IR name="backbone.body.stage2.3.rbr_reparam.weight" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Conv_20" output_port_id="48" />
-		<IR name="Conv_20" output_port_id="2" />
+		<framework name="Conv_48" output_port_id="79" />
+		<IR name="Conv_48" output_port_id="2" />
 	</map>
 	<map>
-		<framework name="Relu_21" output_port_id="49" />
-		<IR name="Relu_21" output_port_id="1" />
+		<framework name="Relu_49" output_port_id="80" />
+		<IR name="Relu_49" output_port_id="1" />
 	</map>
 	<map>
 		<framework name="backbone.body.stage3.0.rbr_reparam.weight" output_port_id="backbone.body.stage3.0.rbr_reparam.weight" />
 		<IR name="backbone.body.stage3.0.rbr_reparam.weight" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Conv_22" output_port_id="50" />
-		<IR name="Conv_22" output_port_id="2" />
+		<framework name="Conv_50" output_port_id="81" />
+		<IR name="Conv_50" output_port_id="2" />
 	</map>
 	<map>
-		<framework name="Relu_23" output_port_id="51" />
-		<IR name="Relu_23" output_port_id="1" />
+		<framework name="Relu_51" output_port_id="82" />
+		<IR name="Relu_51" output_port_id="1" />
 	</map>
 	<map>
 		<framework name="backbone.body.stage3.1.rbr_reparam.weight" output_port_id="backbone.body.stage3.1.rbr_reparam.weight" />
 		<IR name="backbone.body.stage3.1.rbr_reparam.weight" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Conv_24" output_port_id="52" />
-		<IR name="Conv_24" output_port_id="2" />
+		<framework name="Conv_52" output_port_id="83" />
+		<IR name="Conv_52" output_port_id="2" />
 	</map>
 	<map>
-		<framework name="Relu_25" output_port_id="53" />
-		<IR name="Relu_25" output_port_id="1" />
+		<framework name="Relu_53" output_port_id="84" />
+		<IR name="Relu_53" output_port_id="1" />
 	</map>
 	<map>
 		<framework name="backbone.body.stage3.2.rbr_reparam.weight" output_port_id="backbone.body.stage3.2.rbr_reparam.weight" />
 		<IR name="backbone.body.stage3.2.rbr_reparam.weight" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Conv_26" output_port_id="54" />
-		<IR name="Conv_26" output_port_id="2" />
+		<framework name="Conv_54" output_port_id="85" />
+		<IR name="Conv_54" output_port_id="2" />
 	</map>
 	<map>
-		<framework name="Relu_27" output_port_id="55" />
-		<IR name="Relu_27" output_port_id="1" />
+		<framework name="Relu_55" output_port_id="86" />
+		<IR name="Relu_55" output_port_id="1" />
 	</map>
 	<map>
 		<framework name="backbone.body.stage3.3.rbr_reparam.weight" output_port_id="backbone.body.stage3.3.rbr_reparam.weight" />
 		<IR name="backbone.body.stage3.3.rbr_reparam.weight" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Conv_28" output_port_id="56" />
-		<IR name="Conv_28" output_port_id="2" />
+		<framework name="Conv_56" output_port_id="87" />
+		<IR name="Conv_56" output_port_id="2" />
 	</map>
 	<map>
-		<framework name="Relu_29" output_port_id="57" />
-		<IR name="Relu_29" output_port_id="1" />
+		<framework name="Relu_57" output_port_id="88" />
+		<IR name="Relu_57" output_port_id="1" />
 	</map>
 	<map>
 		<framework name="bottleneck.weight" output_port_id="bottleneck.weight" />
 		<IR name="bottleneck.weight" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Conv_30" output_port_id="58" />
-		<IR name="Conv_30" output_port_id="2" />
+		<framework name="Conv_58" output_port_id="89" />
+		<IR name="Conv_58" output_port_id="2" />
 	</map>
 	<map>
-		<framework name="Shape_33" output_port_id="61" />
-		<IR name="Shape_33" output_port_id="1" />
+		<framework name="Shape_61" output_port_id="138" />
+		<IR name="Shape_61" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Shape_33" output_port_id="107" />
-		<IR name="Shape_33" output_port_id="1" />
+		<framework name="Shape_61" output_port_id="92" />
+		<IR name="Shape_61" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Shape_33" output_port_id="64" />
-		<IR name="Shape_33" output_port_id="1" />
+		<framework name="Shape_61" output_port_id="95" />
+		<IR name="Shape_61" output_port_id="1" />
 	</map>
 	<map>
-		<framework name="Gather_3103" output_port_id="76" />
-		<IR name="Gather_3103" output_port_id="3" />
+		<framework name="Gather_3048" output_port_id="107" />
+		<IR name="Gather_3048" output_port_id="3" />
 	</map>
 	<map>
-		<framework name="Gather_3103" output_port_id="69" />
-		<IR name="Gather_3103" output_port_id="3" />
+		<framework name="Gather_3048" output_port_id="100" />
+		<IR name="Gather_3048" output_port_id="3" />
 	</map>
 	<map>
-		<framework name="Concat_49" output_port_id="77" />
-		<IR name="Concat_49" output_port_id="2" />
+		<framework name="Concat_77" output_port_id="108" />
+		<IR name="Concat_77" output_port_id="2" />
 	</map>
 	<map>
-		<framework name="Resize_51" output_port_id="79" />
-		<IR name="Resize_51" output_port_id="3" />
+		<framework name="Resize_79" output_port_id="110" />
+		<IR name="Resize_79" output_port_id="3" />
 	</map>
 	<map>
-		<framework name="Cast_52" output_port_id="80" />
-		<IR name="Cast_52" output_port_id="1" />
-	</map>
-	<map>
-		<framework name="Constant_53" output_port_id="81" />
-		<IR name="Constant_53" output_port_id="0" />
-	</map>
-	<map>
-		<framework name="Gather_54" output_port_id="82" />
-		<IR name="Gather_54" output_port_id="3" />
-	</map>
-	<map>
-		<framework name="mask_z" output_port_id="mask_z" />
-		<IR name="mask_z" output_port_id="2" />
-	</map>
-	<map>
-		<framework name="Constant_78" output_port_id="109" />
-		<IR name="Constant_78" output_port_id="0" />
-	</map>
-	<map>
-		<framework name="Constant_79" output_port_id="110" />
-		<IR name="Constant_79" output_port_id="0" />
-	</map>
-	<map>
-		<framework name="Slice_80" output_port_id="111" />
-		<IR name="Slice_80" output_port_id="4" />
+		<framework name="Cast_80" output_port_id="111" />
+		<IR name="Cast_80" output_port_id="1" />
 	</map>
 	<map>
 		<framework name="Constant_81" output_port_id="112" />
 		<IR name="Constant_81" output_port_id="0" />
 	</map>
 	<map>
-		<framework name="Concat_82" output_port_id="113" />
-		<IR name="Concat_82" output_port_id="2" />
+		<framework name="Gather_82" output_port_id="113" />
+		<IR name="Gather_82" output_port_id="3" />
 	</map>
 	<map>
-		<framework name="Reshape_83" output_port_id="114" />
-		<IR name="Reshape_83" output_port_id="2" />
+		<framework name="mask_z" output_port_id="mask_z" />
+		<IR name="mask_z" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Constant_106" output_port_id="140" />
+		<IR name="Constant_106" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Constant_107" output_port_id="141" />
+		<IR name="Constant_107" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Slice_108" output_port_id="142" />
+		<IR name="Slice_108" output_port_id="4" />
+	</map>
+	<map>
+		<framework name="Constant_109" output_port_id="143" />
+		<IR name="Constant_109" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="Concat_110" output_port_id="144" />
+		<IR name="Concat_110" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="Reshape_111" output_port_id="145" />
+		<IR name="Reshape_111" output_port_id="2" />
 	</map>
 	<map>
 		<framework name="feat_z" output_port_id="feat_z" />

@@ -74,7 +74,7 @@ class EdgeModeTracker:
         self.logger.info("Tracker initialized")
 
         if self.debug:
-            print("Debug mode enabled")
+            self.logger.info("Debug mode enabled")
             self.q_out_debug_crop = self.device.getOutputQueue(
                 "out_debug_crop", 1, False
             )
@@ -161,6 +161,10 @@ class EdgeModeTracker:
         manager_script.setScript(
             self.read_script(script_node_path, "manager_script.py")
         )
+        manager_script.inputs["in_img"].setQueueSize(1)
+        manager_script.inputs["in_img"].setBlocking(False)
+        manager_script.inputs["in_resized_img"].setQueueSize(1)
+        manager_script.inputs["in_resized_img"].setBlocking(False)
 
         ## Pre-backbone crop
         pre_backbone_crop = pipeline.create(dai.node.ImageManip)
@@ -175,12 +179,12 @@ class EdgeModeTracker:
         pre_complete_crop.initialConfig.setFrameType(dai.ImgFrame.Type.BGR888p)
 
         ## Pre-model backbone
-        pre_backbone_nn = pipeline.create(dai.node.NeuralNetwork)
-        pre_backbone_nn.setBlobPath(pre_backbone_nn_path)
+        to_float_backbone_nn = pipeline.create(dai.node.NeuralNetwork)
+        to_float_backbone_nn.setBlobPath(pre_backbone_nn_path)
 
         ## Pre-model complete
-        pre_complete_nn = pipeline.create(dai.node.NeuralNetwork)
-        pre_complete_nn.setBlobPath(pre_complete_nn_path)
+        to_float_complete_nn = pipeline.create(dai.node.NeuralNetwork)
+        to_float_complete_nn.setBlobPath(pre_complete_nn_path)
 
         ## Backbone NN
         backbone_nn = pipeline.create(dai.node.NeuralNetwork)
@@ -203,18 +207,16 @@ class EdgeModeTracker:
         manager_script.outputs["out_cfg_crop_backbone"].link(
             pre_backbone_crop.inputConfig
         )
-        pre_backbone_crop.out.link(pre_backbone_nn.inputs["in_img"])
-        pre_backbone_nn.out.link(backbone_nn.input)
-        manager_script.outputs["out_mask_backbone"].link(backbone_nn.inputs["mask"])
+        pre_backbone_crop.out.link(to_float_backbone_nn.inputs["in_img"])
+        to_float_backbone_nn.out.link(backbone_nn.input)
         backbone_nn.out.link(manager_script.inputs["in_backbone_result"])
 
         manager_script.outputs["out_img_complete"].link(pre_complete_crop.inputImage)
         manager_script.outputs["out_cfg_crop_complete"].link(
             pre_complete_crop.inputConfig
         )
-        pre_complete_crop.out.link(pre_complete_nn.inputs["in_img"])
-        pre_complete_nn.out.link(complete_nn.inputs["img_x"])
-        manager_script.outputs["out_mask_complete"].link(complete_nn.inputs["mask_x"])
+        pre_complete_crop.out.link(to_float_complete_nn.inputs["in_img"])
+        to_float_complete_nn.out.link(complete_nn.inputs["img_x"])
         manager_script.outputs["out_backbone_result"].link(complete_nn.input)
         complete_nn.out.link(manager_script.inputs["in_complete_result"])
 
@@ -231,8 +233,8 @@ class EdgeModeTracker:
 
             xout_debug_float = pipeline.create(dai.node.XLinkOut)
             xout_debug_float.setStreamName("out_debug_float")
-            pre_backbone_nn.out.link(xout_debug_float.input)
-            pre_complete_nn.out.link(xout_debug_float.input)
+            to_float_backbone_nn.out.link(xout_debug_float.input)
+            to_float_complete_nn.out.link(xout_debug_float.input)
 
             xin_debug_img_backbone = pipeline.create(dai.node.XLinkIn)
             xin_debug_img_backbone.setStreamName("in_debug_img_backbone")
@@ -293,16 +295,12 @@ class EdgeModeSyntheticTracker(EdgeModeTracker):
             debug_float = np.array(
                 self.q_out_debug_float.get().getLayerFp16("img"), dtype=np.float16
             )
-
             cv2.imshow(
                 "Converted to float",
                 debug_float.reshape(3, 128, 128).transpose(1, 2, 0).astype(np.uint8),
             )
 
-            cv2.imshow(
-                "Cropped ROI",
-                cropped,
-            )
+            cv2.imshow("Cropped ROI", cropped)
 
         self.fps.tick()
 
@@ -428,15 +426,18 @@ class EdgeModeCamTracker(EdgeModeTracker):
                 self.q_out_debug_float.get().getLayerFp16("img"), dtype=np.float16
             )
 
-            cv2.imshow(
-                "Converted to float",
-                debug_float.reshape(3, 128, 128).transpose(1, 2, 0).astype(np.uint8),
-            )
+            if debug_float.size > 0:
+                cv2.imshow(
+                    "Converted to float",
+                    debug_float.reshape(3, 128, 128)
+                    .transpose(1, 2, 0)
+                    .astype(np.uint8),
+                )
 
-            cv2.imshow(
-                "Cropped ROI",
-                cropped,
-            )
+                cv2.imshow(
+                    "Cropped ROI",
+                    cropped,
+                )
 
         out_img = self.q_out_img.get().getCvFrame()
 
@@ -452,16 +453,18 @@ class EdgeModeCamTracker(EdgeModeTracker):
             )
 
             cropped = self.q_out_debug_crop.get().getCvFrame()
+            if debug_float.size > 0:
+                cv2.imshow(
+                    "Converted to float",
+                    debug_float.reshape(3, 320, 320)
+                    .transpose(1, 2, 0)
+                    .astype(np.uint8),
+                )
 
-            cv2.imshow(
-                "Converted to float",
-                debug_float.reshape(3, 320, 320).transpose(1, 2, 0).astype(np.uint8),
-            )
-
-            cv2.imshow(
-                "Cropped ROI",
-                cropped,
-            )
+                cv2.imshow(
+                    "Cropped ROI",
+                    cropped,
+                )
 
         bbox = self.buffer_to_list(self.q_out_bbox.get().getData(), float)
         resized_img = self.q_out_resized_img.get().getCvFrame()
@@ -504,10 +507,10 @@ class HostModeTracker:
 
         ## Input queues
         self.q_in_backbone_img = self.device.getInputQueue("in_backbone_img")
-        self.q_in_backbone_mask = self.device.getInputQueue("in_backbone_mask")
+        # self.q_in_backbone_mask = self.device.getInputQueue("in_backbone_mask")
 
         self.q_in_complete_img_x = self.device.getInputQueue("in_complete_img_x")
-        self.q_in_complete_mask_x = self.device.getInputQueue("in_complete_mask_x")
+        # self.q_in_complete_mask_x = self.device.getInputQueue("in_complete_mask_x")
         self.q_in_complete_feat_z = self.device.getInputQueue("in_complete_feat_z")
         self.q_in_complete_mask_z = self.device.getInputQueue("in_complete_mask_z")
         self.q_in_complete_pos_z = self.device.getInputQueue("in_complete_pos_z")
@@ -554,10 +557,6 @@ class HostModeTracker:
         xlink_in_complete_img_x = pipeline.createXLinkIn()
         xlink_in_complete_img_x.setStreamName("in_complete_img_x")
         xlink_in_complete_img_x.setMaxDataSize(3 * 320 * 320 * 8)
-
-        xlink_in_complete_mask_x = pipeline.createXLinkIn()
-        xlink_in_complete_mask_x.setStreamName("in_complete_mask_x")
-        xlink_in_complete_mask_x.setMaxDataSize(320 * 320)
 
         xlink_in_complete_feat_z = pipeline.createXLinkIn()
         xlink_in_complete_feat_z.setStreamName("in_complete_feat_z")
@@ -614,13 +613,11 @@ class HostModeTracker:
         #####################
         xlink_in_backbone_img.out.link(pre_backbone_nn.inputs["in_img"])
         pre_backbone_nn.out.link(backbone_nn.input)
-        xlink_in_backbone_mask.out.link(backbone_nn.inputs["mask"])
 
         backbone_nn.out.link(xlink_out_backbone.input)
 
         xlink_in_complete_img_x.out.link(pre_complete_nn.inputs["in_img"])
         pre_complete_nn.out.link(complete_nn.input)
-        xlink_in_complete_mask_x.out.link(complete_nn.inputs["mask_x"])
         xlink_in_complete_feat_z.out.link(complete_nn.inputs["feat_z"])
         xlink_in_complete_mask_z.out.link(complete_nn.inputs["mask_z"])
         xlink_in_complete_pos_z.out.link(complete_nn.inputs["pos_z"])
@@ -663,20 +660,9 @@ class HostModeTracker:
         im_crop_padded = cv2.copyMakeBorder(
             im_crop, y1_pad, y2_pad, x1_pad, x2_pad, cv2.BORDER_CONSTANT
         )
-        # deal with attention mask
-        H, W, _ = im_crop_padded.shape
-        att_mask = np.ones((H, W))
-        end_x, end_y = -x2_pad, -y2_pad
-        if y2_pad == 0:
-            end_y = None
-        if x2_pad == 0:
-            end_x = None
-        att_mask[y1_pad:end_y, x1_pad:end_x] = 0
-
         resize_factor = output_sz / crop_sz
         im_crop_padded = cv2.resize(im_crop_padded, (output_sz, output_sz))
-        att_mask = cv2.resize(att_mask, (output_sz, output_sz)).astype(np.bool_)
-        return im_crop_padded, resize_factor, att_mask
+        return im_crop_padded, resize_factor
 
     def clip_bbox(self, box: np.ndarray, H: int, W: int, margin: int = 0) -> np.ndarray:
         x1, y1, w, h = box
@@ -730,7 +716,7 @@ class HostModeSyntheticTracker(HostModeTracker):
         self.fps.reset()
         self.fps.start()
 
-        img, _, mask = self.sample_target(
+        img, _ = self.sample_target(
             input_frame, bbox, self.TEMPLATE_FACTOR, self.TEMPLATE_SIZE
         )
 
@@ -739,11 +725,7 @@ class HostModeSyntheticTracker(HostModeTracker):
             img.transpose(2, 0, 1).flatten().astype(np.uint8).view(np.uint8)
         )
 
-        mask_buff = dai.Buffer()
-        mask_buff.setData(mask)
-
         self.q_in_backbone_img.send(img_buff)
-        self.q_in_backbone_mask.send(mask_buff)
 
         backbone_out = self.q_out_backbone.get()
 
@@ -764,7 +746,6 @@ class HostModeSyntheticTracker(HostModeTracker):
         self.state = bbox
 
         self.fps.tick()
-
         self.logger.info("Initialization done...")
 
         return input_frame, bbox
@@ -773,7 +754,7 @@ class HostModeSyntheticTracker(HostModeTracker):
         self, input_frame: np.ndarray
     ) -> Tuple[np.ndarray, Tuple[float, float, float, float]]:
         H, W, _ = input_frame.shape
-        img_x, resize_factor, mask_x = self.sample_target(
+        img_x, resize_factor = self.sample_target(
             input_frame, self.state, self.SEARCH_FACTOR, self.SEARCH_SIZE
         )
 
@@ -781,9 +762,6 @@ class HostModeSyntheticTracker(HostModeTracker):
         img_x_buff.setData(
             img_x.transpose(2, 0, 1).flatten().astype(np.uint8).view(np.uint8)
         )
-
-        mask_x_buff = dai.Buffer()
-        mask_x_buff.setData(mask_x)
 
         feat_z_buff = dai.Buffer()
         feat_z_buff.setData(self.feat_z.flatten().astype(np.float16).view(np.uint8))
@@ -795,7 +773,6 @@ class HostModeSyntheticTracker(HostModeTracker):
         pos_z_buff.setData(self.pos_z.flatten().astype(np.float16).view(np.uint8))
 
         self.q_in_complete_img_x.send(img_x_buff)
-        self.q_in_complete_mask_x.send(mask_x_buff)
         self.q_in_complete_feat_z.send(feat_z_buff)
         self.q_in_complete_mask_z.send(mask_z_buff)
         self.q_in_complete_pos_z.send(pos_z_buff)
@@ -883,7 +860,7 @@ class HostModeCamTracker(HostModeTracker):
 
         input_frame = self.q_out_img.get().getCvFrame()
 
-        img, _, mask = self.sample_target(
+        img, _ = self.sample_target(
             input_frame, bbox, self.TEMPLATE_FACTOR, self.TEMPLATE_SIZE
         )
 
@@ -892,11 +869,7 @@ class HostModeCamTracker(HostModeTracker):
             img.transpose(2, 0, 1).flatten().astype(np.uint8).view(np.uint8)
         )
 
-        mask_buff = dai.Buffer()
-        mask_buff.setData(mask)
-
         self.q_in_backbone_img.send(img_buff)
-        self.q_in_backbone_mask.send(mask_buff)
 
         backbone_out = self.q_out_backbone.get()
 
@@ -926,7 +899,7 @@ class HostModeCamTracker(HostModeTracker):
         input_frame = self.q_out_img.get().getCvFrame()
 
         H, W, _ = input_frame.shape
-        img_x, resize_factor, mask_x = self.sample_target(
+        img_x, resize_factor = self.sample_target(
             input_frame, self.state, self.SEARCH_FACTOR, self.SEARCH_SIZE
         )
 
@@ -934,9 +907,6 @@ class HostModeCamTracker(HostModeTracker):
         img_x_buff.setData(
             img_x.transpose(2, 0, 1).flatten().astype(np.uint8).view(np.uint8)
         )
-
-        mask_x_buff = dai.Buffer()
-        mask_x_buff.setData(mask_x)
 
         feat_z_buff = dai.Buffer()
         feat_z_buff.setData(self.feat_z.flatten().astype(np.float16).view(np.uint8))
@@ -948,7 +918,6 @@ class HostModeCamTracker(HostModeTracker):
         pos_z_buff.setData(self.pos_z.flatten().astype(np.float16).view(np.uint8))
 
         self.q_in_complete_img_x.send(img_x_buff)
-        self.q_in_complete_mask_x.send(mask_x_buff)
         self.q_in_complete_feat_z.send(feat_z_buff)
         self.q_in_complete_mask_z.send(mask_z_buff)
         self.q_in_complete_pos_z.send(pos_z_buff)

@@ -5,3 +5,5 @@ from tracker.tracker import (
     HostModeSyntheticTracker,
     HostModeCamTracker,
 )
+
+from tracker.onnx_tracker import OnnxTracker
