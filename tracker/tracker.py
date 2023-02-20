@@ -126,7 +126,7 @@ class EdgeModeTracker:
             )
             img_source.setPreviewSize(640, 480)
             img_source.setInterleaved(False)
-            img_source.setFps(30)
+            img_source.setFps(10)
 
             img_source.preview.link(initial_resizer.inputImage)
             img_source_out = img_source.preview
@@ -161,10 +161,11 @@ class EdgeModeTracker:
         manager_script.setScript(
             self.read_script(script_node_path, "manager_script.py")
         )
-        manager_script.inputs["in_img"].setQueueSize(1)
-        manager_script.inputs["in_img"].setBlocking(False)
-        manager_script.inputs["in_resized_img"].setQueueSize(1)
-        manager_script.inputs["in_resized_img"].setBlocking(False)
+        if self.type == TrackerType.CAM:
+            manager_script.inputs["in_img"].setQueueSize(1)
+            manager_script.inputs["in_img"].setBlocking(False)
+            manager_script.inputs["in_resized_img"].setQueueSize(1)
+            manager_script.inputs["in_resized_img"].setBlocking(False)
 
         ## Pre-backbone crop
         pre_backbone_crop = pipeline.create(dai.node.ImageManip)
@@ -193,6 +194,8 @@ class EdgeModeTracker:
         ## Complete NN
         complete_nn = pipeline.create(dai.node.NeuralNetwork)
         complete_nn.setBlobPath(complete_nn_path)
+        # complete_nn.setNumInferenceThreads(1)  # By default 2 threads are used
+        # complete_nn.setNumNCEPerInferenceThread(2)
 
         #####################
         ##  Linking nodes  ##
@@ -289,6 +292,7 @@ class EdgeModeSyntheticTracker(EdgeModeTracker):
         self.q_in_img.send(img_frame)
 
         out_img = self.q_out_img.get().getCvFrame()
+        resized_img = self.q_out_resized_img.get().getCvFrame()
 
         if self.debug:
             cropped = self.q_out_debug_crop.get().getCvFrame()
