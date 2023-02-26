@@ -22,10 +22,12 @@ def draw_bbox(img, bbox, color=(0, 0, 255), thickness=2):
 
 tracker = EdgeModeSyntheticTracker(
     "models/backbone_bottleneck_pe/backbone_bottleneck_pe_myriad.blob",
-    "models/complete/complete_myriad.blob",
+    "models/complete/complete_myriad_sim.blob",
     "models/to_float_model/to_float_model_128.blob",
     "models/to_float_model/to_float_model_320.blob",
     "tracker/utils/script_node",
+    False,
+    3,
 )
 
 reader = ImageReader("dataset", DatasetType.LASOT)
