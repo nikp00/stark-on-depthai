@@ -26,8 +26,6 @@ tracker = EdgeModeCamTracker(
     "models/to_float_model/to_float_model_128.blob",
     "models/to_float_model/to_float_model_320.blob",
     "tracker/utils/script_node",
-    True,
-    3,
 )
 
 cv2.namedWindow("Output img", cv2.WINDOW_NORMAL)

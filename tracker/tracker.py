@@ -124,7 +124,7 @@ class EdgeModeTracker:
             img_source.setResolution(
                 dai.ColorCameraProperties.SensorResolution.THE_1080_P
             )
-            img_source.setPreviewSize(640, 480)
+            img_source.setPreviewSize(1920, 1080)
             img_source.setInterleaved(False)
             img_source.setFps(10)
 
@@ -926,7 +926,11 @@ class HostModeCamTracker(HostModeTracker):
         self.q_in_complete_mask_z.send(mask_z_buff)
         self.q_in_complete_pos_z.send(pos_z_buff)
 
+        time_start = time.time() * 1000
+
         complete_out = self.q_out_complete.get()
+
+        print("end: ", (time.time() * 1000) - time_start)
 
         outputs_coord = np.array(complete_out.getLayerFp16("outputs_coord")).reshape(4)
         pred_box = outputs_coord * self.SEARCH_SIZE / resize_factor

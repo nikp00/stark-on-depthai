@@ -1,12 +1,15 @@
-dataset/
-debug/
-results/
-venv/
-
-.env
-
-vot/sequences/
-vot/logs/
-
 .vscode/
 __pycache__/
+dataset/
+debug/
+venv/
+.env
+
+# VOT
+vot/*/sequences
+vot/*/logs
+vot/*/results
+
+
+
+

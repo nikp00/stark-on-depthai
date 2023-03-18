@@ -20,15 +20,6 @@
 -VPU_NUMBER_OF_SHAVES 8 \
 -VPU_NUMBER_OF_CMX_SLICES 8
 
-# ## Complete
-# /opt/intel/openvino_2022.2.0.7713/tools/compile_tool/compile_tool \
-# -m /stark-on-depthai/models/complete/complete.xml \
-# -d MYRIAD \
-# -c /stark-on-depthai/docker/openvino/myriad.conf \
-# -o /stark-on-depthai/models/complete/complete_myriad.blob \
-# -ip FP16 \
-# -VPU_NUMBER_OF_SHAVES 4 \
-# -VPU_NUMBER_OF_CMX_SLICES 4
 
 ## To float model 128
 /opt/intel/openvino_2022.2.0.7713/tools/compile_tool/compile_tool \
