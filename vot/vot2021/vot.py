@@ -62,7 +62,8 @@ class VOT(object):
         if isinstance(request.region, trax.Polygon):
             self._region = Polygon([Point(x[0], x[1]) for x in request.region])
         elif isinstance(request.region, trax.Mask):
-            self._region = request.region.array(True)
+            # self._region = request.region.array(True)
+            self._region = request.region
         else:
             self._region = Rectangle(*request.region.bounds())
         self._image = [x.path() for k, x in request.image.items()]
